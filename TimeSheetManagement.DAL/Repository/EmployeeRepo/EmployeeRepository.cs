@@ -15,7 +15,7 @@ namespace TimeSheetManagement.DAL.Repository.EmployeeRepo
             _timeSheetDbContext = timeSheetDbContext;
         }
 
-        public void AddTimeSheeet(TimeSheet timeSheet)
+        public void AddTimeSheet(TimeSheet timeSheet)
         {
             _timeSheetDbContext.timeSheet.Add(timeSheet);
             _timeSheetDbContext.SaveChanges();

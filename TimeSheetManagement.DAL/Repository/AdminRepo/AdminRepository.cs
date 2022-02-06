@@ -49,9 +49,15 @@ namespace TimeSheetManagement.DAL.Repository.AdminRepo
              _timeSheetDbContext.SaveChanges();
          }
 
+         public void AssignManager(Employee employee)
+         {
+            _timeSheetDbContext.Entry(employee).State = EntityState.Modified;
+            _timeSheetDbContext.SaveChanges();
+        }
+
         #endregion
 
-       
+
         #region Project
 
         public void AddProject(Project project)

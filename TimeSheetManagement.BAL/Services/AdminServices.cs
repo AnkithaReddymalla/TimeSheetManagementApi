@@ -38,6 +38,12 @@ namespace TimeSheetManagement.BAL.Services
             return _adminRepository.GetEmployees();
         }
 
+        public void AssignManager(Employee employee)
+        {
+            _adminRepository.AssignManager(employee);
+        }
+
+
         #endregion
 
         #region Project

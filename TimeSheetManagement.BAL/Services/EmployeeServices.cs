@@ -14,9 +14,9 @@ namespace TimeSheetManagement.BAL.Services
             _employeeRepository = employeeRepository;
         }
 
-        public void AddTimeSheeet(TimeSheet timeSheet)
+        public void AddTimeSheet(TimeSheet timeSheet)
         {
-            _employeeRepository.AddTimeSheeet(timeSheet);
+            _employeeRepository.AddTimeSheet(timeSheet);
         }
         public void DeleteTimeSheet(int TimeSheetID)
         {

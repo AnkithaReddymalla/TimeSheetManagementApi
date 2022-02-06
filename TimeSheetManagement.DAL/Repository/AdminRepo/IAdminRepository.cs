@@ -15,7 +15,7 @@ namespace TimeSheetManagement.DAL.Repository.AdminRepo
         void DeleteEmployee(int EmpID);
         Employee GetEmployeeByID(int EmpID);
         IEnumerable<Employee> GetEmployees();
-
+        void AssignManager(Employee employee);
         #endregion
 
         #region Project

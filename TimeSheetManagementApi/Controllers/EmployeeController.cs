@@ -19,22 +19,25 @@ namespace TimeSheetManagementApi.Controllers
             _employeeServices = employeeServices;
         }
 
-        [HttpPost("AddTimeSheeet")]
-        public void AddTimeSheeet([FromBody] TimeSheet timeSheet)
+        [HttpPost("AddTimeSheet")]
+        public IActionResult AddTimeSheet([FromBody] TimeSheet timeSheet)
         {
-            _employeeServices.AddTimeSheeet(timeSheet);
+            _employeeServices.AddTimeSheet(timeSheet);
+            return Ok("TimeSheet Added successfully!!");
         }
 
         [HttpDelete("DeleteTimeSheet")]
-        public void DeleteTimeSheet(int TimeSheetID)
+        public IActionResult DeleteTimeSheet(int TimeSheetID)
         {
             _employeeServices.DeleteTimeSheet(TimeSheetID);
+            return Ok("TimeSheet Deleted successfully!!");
         }
 
         [HttpPut("UpdateTimeSheet")]
-        public void UpdateTimeSheet([FromBody] TimeSheet timeSheet)
+        public IActionResult UpdateTimeSheet([FromBody] TimeSheet timeSheet)
         {
             _employeeServices.UpdateTimeSheet(timeSheet);
+            return Ok("TimeSheet Updated successfully!!");
         }
     }
 }

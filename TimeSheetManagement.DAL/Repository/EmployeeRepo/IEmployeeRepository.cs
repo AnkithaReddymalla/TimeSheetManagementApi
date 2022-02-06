@@ -7,7 +7,7 @@ namespace TimeSheetManagement.DAL.Repository.EmployeeRepo
 {
    public interface IEmployeeRepository
     {
-        void AddTimeSheeet(TimeSheet timeSheet);
+        void AddTimeSheet(TimeSheet timeSheet);
         void UpdateTimeSheet(TimeSheet timeSheet);
         void DeleteTimeSheet(int TimeSheedID);
        

@@ -26,6 +26,14 @@ namespace TimeSheetManagementApi.Controllers
         {
             return _adminServices.GetEmployees();
         }
+
+        [HttpGet("GetEmployeeByID")]
+        public Employee GetEmployeeByID(int EmpID)
+        {
+            return _adminServices.GetEmployeeByID(EmpID);
+
+        }
+
         [HttpPost("AddEmployee")]
         public IActionResult AddEmployee([FromBody] Employee employee)
         {
@@ -36,7 +44,7 @@ namespace TimeSheetManagementApi.Controllers
         public IActionResult DeleteEmployee(int EmpID)
         {
             _adminServices.DeleteEmployee(EmpID);
-            return Ok("Movie deleted successfully!!");
+            return Ok("Employee deleted successfully!!");
         }
         [HttpPut("UpdateEmployee")]
         public IActionResult UpdateEmployee([FromBody] Employee employee)
@@ -44,9 +52,16 @@ namespace TimeSheetManagementApi.Controllers
             _adminServices.UpdateEmployee(employee);
             return Ok("Employee updated successfully!!");
         }
+
+        [HttpPut("AssignManager")]
+        public IActionResult AssignManager([FromBody] Employee employee)
+        {
+            _adminServices.AssignManager(employee);
+            return Ok("Manager Assigned successfully!!");
+        }
         #endregion
 
-       
+
         #region Project
 
         [HttpGet("GetProjects")]
