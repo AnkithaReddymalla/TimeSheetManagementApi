@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31911.196
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeSheetManagementApi", "TimeSheetManagementApi\TimeSheetManagementApi.csproj", "{AF2CDB92-F1A1-41DD-8F75-EFB7099F994A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeSheetManagement.BAL", "TimeSheetManagement.BAL\TimeSheetManagement.BAL.csproj", "{DD9AC775-E216-4A56-B576-FEFFE7784878}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeSheetManagement.DAL", "TimeSheetManagement.DAL\TimeSheetManagement.DAL.csproj", "{D54DE898-A725-49FE-B646-3DA6507444E2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeSheetManagement.Entity", "TimeSheetManagement.Entity\TimeSheetManagement.Entity.csproj", "{4281E1F9-7432-4EC6-9896-B20FD2C019E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeSheetManagement.UI", "TimeSheetManagement.UI\TimeSheetManagement.UI.csproj", "{0EC5AABD-8D00-4CC0-BE63-7FE89B301D81}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AF2CDB92-F1A1-41DD-8F75-EFB7099F994A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF2CDB92-F1A1-41DD-8F75-EFB7099F994A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF2CDB92-F1A1-41DD-8F75-EFB7099F994A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF2CDB92-F1A1-41DD-8F75-EFB7099F994A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD9AC775-E216-4A56-B576-FEFFE7784878}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD9AC775-E216-4A56-B576-FEFFE7784878}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD9AC775-E216-4A56-B576-FEFFE7784878}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD9AC775-E216-4A56-B576-FEFFE7784878}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D54DE898-A725-49FE-B646-3DA6507444E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D54DE898-A725-49FE-B646-3DA6507444E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D54DE898-A725-49FE-B646-3DA6507444E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D54DE898-A725-49FE-B646-3DA6507444E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4281E1F9-7432-4EC6-9896-B20FD2C019E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4281E1F9-7432-4EC6-9896-B20FD2C019E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4281E1F9-7432-4EC6-9896-B20FD2C019E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4281E1F9-7432-4EC6-9896-B20FD2C019E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EC5AABD-8D00-4CC0-BE63-7FE89B301D81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EC5AABD-8D00-4CC0-BE63-7FE89B301D81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EC5AABD-8D00-4CC0-BE63-7FE89B301D81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EC5AABD-8D00-4CC0-BE63-7FE89B301D81}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B913C1C7-5572-4B81-B4CC-191A089363DB}
+	EndGlobalSection
+EndGlobal
