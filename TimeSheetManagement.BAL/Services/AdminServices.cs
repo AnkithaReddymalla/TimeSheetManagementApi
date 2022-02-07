@@ -20,6 +20,10 @@ namespace TimeSheetManagement.BAL.Services
         {
             _adminRepository.AddEmployee(employee);
         }
+        public Employee UpdateEmployee(int EmpID)
+        {
+            return _adminRepository.UpdateEmployee(EmpID);
+        }
         public void UpdateEmployee(Employee employee)
         {
             _adminRepository.UpdateEmployee(employee);
@@ -36,6 +40,11 @@ namespace TimeSheetManagement.BAL.Services
         public IEnumerable<Employee> GetEmployees()
         {
             return _adminRepository.GetEmployees();
+        }
+
+        public Employee AssignManager(int EmpID)
+        {
+            return _adminRepository.AssignManager(EmpID);
         }
 
         public void AssignManager(Employee employee)

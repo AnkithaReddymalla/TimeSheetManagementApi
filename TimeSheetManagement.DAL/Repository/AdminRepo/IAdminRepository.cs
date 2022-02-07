@@ -11,10 +11,12 @@ namespace TimeSheetManagement.DAL.Repository.AdminRepo
        #region Employee
 
         void AddEmployee(Employee employee);
+        Employee UpdateEmployee(int EmpID);
         void UpdateEmployee(Employee employee);
         void DeleteEmployee(int EmpID);
         Employee GetEmployeeByID(int EmpID);
         IEnumerable<Employee> GetEmployees();
+        Employee AssignManager(int EmpID);
         void AssignManager(Employee employee);
         #endregion
 

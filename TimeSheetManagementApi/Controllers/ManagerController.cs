@@ -39,7 +39,7 @@ namespace TimeSheetManagementApi.Controllers
             return _managerServices.GetEmployees(MgrID);
         }
 
-        [HttpGet(" GetTimeSheetByID")]
+        [HttpGet("GetTimeSheetByID")]
         public TimeSheet GetTimeSheetByID(int EmpID)
         {
             return _managerServices.GetTimeSheetByID(EmpID);

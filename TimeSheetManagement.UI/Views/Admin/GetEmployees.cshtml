@@ -1,0 +1,48 @@
+﻿@model IEnumerable<TimeSheetManagement.Entity.Models.Employee>
+
+<div class="row">
+    <div class="col-12">
+        <h3>Employees</h3>
+        <hr />
+        <table class="table table-light table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>EmpID</th>
+                    <th>EmpName</th>
+                    <th>EmpDesignation</th>
+                    <th>EmpEmailID</th>
+                    <th>EmpPhone</th>
+                    <th>EmpUserName</th>
+                    <th>EmpPsw</th>
+                    <th>EmpDOJ</th>
+                    <th>MgrID</th>
+                    <th>CurrentProjectID</th>
+                    <th>UpdateEmployee</th>
+                    <th>AssignManager</th>
+                    <th>DeleteEmployee</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var employee in Model)
+                {
+                <tr>
+                    <td>@employee.EmpID</td>
+                    <td>@employee.EmpName</td>
+                    <td>@employee.EmpDesignation</td>
+                    <td>@employee.EmpEmailID</td>
+                    <td>@employee.EmpPhone</td>
+                    <td>@employee.EmpUserName</td>
+                    <td>@employee.EmpPsw</td>
+                    <td>@employee.EmpDOJ</td>
+                    <td>@employee.MgrID</td>
+                    <td>@employee.CurrentProjectID</td>
+
+                    <td><a class="btn btn-primary" asp-controller="Admin" asp-action="UpdateEmployee" asp-route-EmpID="@employee.EmpID">Update</a></td>
+                    <td><a class="btn btn-primary" asp-controller="Admin" asp-action="AssignManager" asp-route-EmpID="@employee.EmpID">AssignManager</a></td>
+                    <td><a class="btn btn-danger" asp-controller="Admin" asp-action="DeleteEmployee" asp-route-EmpID="@employee.EmpID">Delete</a></td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -46,11 +46,23 @@ namespace TimeSheetManagementApi.Controllers
             _adminServices.DeleteEmployee(EmpID);
             return Ok("Employee deleted successfully!!");
         }
+        [HttpGet("UpdateEmployee")]
+        public Employee UpdateEmployee(int EmpID)
+        {
+            return _adminServices.UpdateEmployee(EmpID);
+
+        }
         [HttpPut("UpdateEmployee")]
         public IActionResult UpdateEmployee([FromBody] Employee employee)
         {
             _adminServices.UpdateEmployee(employee);
             return Ok("Employee updated successfully!!");
+        }
+        [HttpGet("AssignManager")]
+        public Employee AssignManager(int EmpID)
+        {
+            return _adminServices.AssignManager(EmpID);
+
         }
 
         [HttpPut("AssignManager")]

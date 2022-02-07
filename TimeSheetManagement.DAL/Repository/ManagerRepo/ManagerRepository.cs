@@ -35,7 +35,7 @@ namespace TimeSheetManagement.DAL.Repository.ManagerRepo
 
         public TimeSheet GetTimeSheetByID(int EmpID)
         {
-            return _timeSheetDbContext.timeSheet.Find(EmpID);
+            return _timeSheetDbContext.timeSheet.Where(obj => obj.EmpID == EmpID).SingleOrDefault();
         }
 
         public void TimeSheetRelease(TimeSheet timeSheet)

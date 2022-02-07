@@ -43,17 +43,27 @@ namespace TimeSheetManagement.DAL.Repository.AdminRepo
              return _timeSheetDbContext.employee.ToList();
          }
 
-         public void UpdateEmployee(Employee employee)
+        public Employee UpdateEmployee(int EmpID)
+        {
+            return _timeSheetDbContext.employee.Find(EmpID);
+        }
+
+        public void UpdateEmployee(Employee employee)
          {
              _timeSheetDbContext.Entry(employee).State = EntityState.Modified;
              _timeSheetDbContext.SaveChanges();
          }
 
-         public void AssignManager(Employee employee)
+        public Employee AssignManager(int EmpID)
+        {
+            return _timeSheetDbContext.employee.Find(EmpID);
+        }
+
+        public void AssignManager(Employee employee)
          {
             _timeSheetDbContext.Entry(employee).State = EntityState.Modified;
             _timeSheetDbContext.SaveChanges();
-        }
+         }
 
         #endregion
 
