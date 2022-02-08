@@ -1,0 +1,32 @@
+﻿@model IEnumerable<TimeSheetManagement.Entity.Models.Employee>
+
+<div class="row">
+    <div class="col-12">
+        <h3>Managers</h3>
+        <hr />
+        <table class="table table-light table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>EmpID</th>
+                    <th>EmpName</th>
+                    <th>Get Employees</th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var employee in Model)
+                {
+                <tr>
+                    <td>@employee.EmpID</td>
+                    <td>@employee.EmpName</td>
+
+                    <td><a class="btn btn-primary" asp-controller="Manager" asp-action="GetEmployees" asp-route-EmpID="@employee.EmpID">GetEmployees</a></td>
+                   
+
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

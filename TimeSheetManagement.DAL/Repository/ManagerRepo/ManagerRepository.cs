@@ -36,9 +36,9 @@ namespace TimeSheetManagement.DAL.Repository.ManagerRepo
             _timeSheetDbContext.SaveChanges();
         }
 
-        public IEnumerable<Employee> GetEmployees(int MgrID)
+        public IEnumerable<Employee> GetEmployees(int EmpID)
         {
-            return _timeSheetDbContext.employee.Where(obj => obj.MgrID == MgrID).ToList();
+            return _timeSheetDbContext.employee.Where(obj => obj.MgrID == EmpID).ToList();
         }
 
         public TimeSheet GetTimeSheetByID(int EmpID)
@@ -64,6 +64,15 @@ namespace TimeSheetManagement.DAL.Repository.ManagerRepo
                 employeeResult = result[0];
             }
             return employeeResult;
+        }
+       
+        IEnumerable<Employee> IManagerRepository.GetManagers()
+        {
+            
+             var result = (from a in  _timeSheetDbContext.employee
+             where a.EmpDesignation == "Manager"
+             select new Employee { EmpID = a.EmpID, EmpName = a.EmpName }).ToList();
+             return result;
         }
     }
 }

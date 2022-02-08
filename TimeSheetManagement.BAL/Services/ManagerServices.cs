@@ -32,9 +32,9 @@ namespace TimeSheetManagement.BAL.Services
             _managerRepository.ChangeEmpPsw(employee);
         }
 
-        public IEnumerable<Employee> GetEmployees(int MgrID)
+        public IEnumerable<Employee> GetEmployees(int EmpID)
         {
-            return _managerRepository.GetEmployees(MgrID);
+            return _managerRepository.GetEmployees(EmpID);
         }
 
         public TimeSheet GetTimeSheetByID(int EmpID)
@@ -53,5 +53,10 @@ namespace TimeSheetManagement.BAL.Services
         {
             return _managerRepository.ManagerLogin(employee);
         }
+        public IEnumerable<Employee> GetManagers()
+        {
+            return _managerRepository.GetManagers();
+        }
+
     }
 }

@@ -3,3 +3,62 @@
 *@
 @{
 }
+<style>
+    .profile img {
+        height: 300px;
+        width: 300px;
+        margin-top: 10px;
+    }
+
+    .profile {
+        display: flex;
+        justify-content: center;
+    }
+
+    h4 {
+        color: royalblue;
+        margin-top: 30px;
+        margin-left: 10px;
+    }
+
+    .navbar {
+        background-color: royalblue;
+        margin-top: 10px;
+    }
+
+    a {
+        color: white;
+    }
+
+        a:hover {
+            font-size: large;
+        }
+</style>
+<div class="d-flex flex-column">
+
+    <nav id="navbar" class="nav-menu navbar">
+
+
+        <a asp-area="" asp-controller="Employee" asp-action="AddTimeSheet">Add Timesheet</a>
+
+        <a asp-area="" asp-controller="Home" asp-action="Index">Logout</a>
+
+    </nav>
+
+    <div class="profile">
+        <div>
+            <img src="~/css/employee.png" alt="" class="img-fluid rounded-circle">
+            <div class="text-center">
+                <h4>Welcome Employee!</h4>
+            </div>
+        </div>
+
+    </div><br />
+    <br />
+    <div style="background-color:royalblue">
+
+        Thank You!
+
+
+    </div>
+</div>

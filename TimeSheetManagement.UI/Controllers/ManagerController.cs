@@ -19,12 +19,12 @@ namespace TimeSheetManagement.UI.Controllers
             _configuration = configuration;
         }
 
-        public async Task<IActionResult> GetEmployees(int MgrID)
+        public async Task<IActionResult> GetEmployees(int EmpID)
         {
             IEnumerable<Employee> employeeResult = null;
             using (HttpClient client = new HttpClient())
             {
-                string endPoint = _configuration["WebApiBaseUrl"] + "Manager/GetEmployees?MgrID="+MgrID;
+                string endPoint = _configuration["WebApiBaseUrl"] + "Manager/GetEmployees?EmpID="+EmpID;
                 using (var response = await client.GetAsync(endPoint))
                 {
                     if (response.StatusCode == System.Net.HttpStatusCode.OK)
@@ -143,7 +143,7 @@ namespace TimeSheetManagement.UI.Controllers
             }
             return View(timeSheetResult);
         }
-
+        
         public async Task<IActionResult> TimeSheetRelease(int TimeSheetID)
         {
             TimeSheet timeSheetResult = null;
@@ -218,6 +218,25 @@ namespace TimeSheetManagement.UI.Controllers
         {
             return View();
         }
+
+        public async Task<IActionResult> GetManagers()
+        {
+            IEnumerable<Employee> employeeResult = null;
+            using (HttpClient client = new HttpClient())
+            {
+                string endPoint = _configuration["WebApiBaseUrl"] + "Manager/GetManagers";
+                using (var response = await client.GetAsync(endPoint))
+                {
+                    if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                    {
+                        var result = await response.Content.ReadAsStringAsync();
+                        employeeResult = JsonConvert.DeserializeObject<IEnumerable<Employee>>(result);
+                    }
+                }
+            }
+            return View(employeeResult);
+        }
+
 
 
 

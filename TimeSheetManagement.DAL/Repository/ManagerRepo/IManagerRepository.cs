@@ -10,11 +10,12 @@ namespace TimeSheetManagement.DAL.Repository.ManagerRepo
         TimeSheet GetTimeSheetByID(int EpmID);
         TimeSheet TimeSheetRelease(int TimeSheetID);
         void TimeSheetRelease(TimeSheet timeSheet);
-        IEnumerable<Employee> GetEmployees(int MgrID);
+        IEnumerable<Employee> GetEmployees(int EmpID);
         Employee ChangeEmpPsw(int EmpID);
         void ChangeEmpPsw(Employee employee);
         Employee AllocateProject(int EmpID);
         void AllocateProject(Employee employee);
         Employee ManagerLogin(Employee employee);
+        IEnumerable<Employee> GetManagers();
     }
 }

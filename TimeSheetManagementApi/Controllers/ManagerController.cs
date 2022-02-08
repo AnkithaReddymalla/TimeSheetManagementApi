@@ -46,9 +46,9 @@ namespace TimeSheetManagementApi.Controllers
         }
 
         [HttpGet("GetEmployees")]
-        public IEnumerable<Employee> GetEmployees(int MgrID)
+        public IEnumerable<Employee> GetEmployees(int EmpID)
         {
-            return _managerServices.GetEmployees(MgrID);
+            return _managerServices.GetEmployees(EmpID);
         }
 
         [HttpGet("GetTimeSheetByID")]
@@ -79,5 +79,13 @@ namespace TimeSheetManagementApi.Controllers
             else
                 return NotFound();
         }
+        
+       
+        [HttpGet("GetManagers")]
+        public IEnumerable<Employee> GetManagers()
+        {
+            return _managerServices.GetManagers();
+        }
+
     }
 }

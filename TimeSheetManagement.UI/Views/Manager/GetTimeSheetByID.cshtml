@@ -1,4 +1,4 @@
-﻿@model IEnumerable<TimeSheetManagement.Entity.Models.TimeSheet>
+﻿@model TimeSheetManagement.Entity.Models.TimeSheet
 
 <div class="row">
     <div class="col-12">
@@ -15,28 +15,30 @@
                     <th>TimeTo</th>
                     <th>Hours</th>
                     <th>Status</th>
+                    <th>TimeSheetRelease</th>
+
 
                 </tr>
             </thead>
             <tbody>
-                @foreach (var timeSheet in Model)
-                {
+               
                 <tr>
-                  
-                    <td>@timeSheet.TimeSheetID</td>
-                    <td>@timeSheet.ProjectID</td>
-                    <td>@timeSheet.EmpID</td>
-                    <td>@timeSheet.Date</td>
-                    <td>@timeSheet.TimeFrom</td>
-                    <td>@timeSheet.TimeTo</td>
-                    <td>@timeSheet.Hours</td>
-                    <td>@timeSheet.Status</td>
+                    <td> @Html.DisplayFor(obj => obj.TimeSheetID)</td>
+                    <td> @Html.DisplayFor(obj => obj.ProjectID)</td>
+                    <td> @Html.DisplayFor(obj => obj.EmpID)</td>
+                    <td> @Html.DisplayFor(obj => obj.Date)</td>
+                    <td> @Html.DisplayFor(obj => obj.TimeFrom)</td>
+                    <td> @Html.DisplayFor(obj => obj.TimeTo)</td>
+                    <td> @Html.DisplayFor(obj => obj.Hours)</td>
+                    <td> @Html.DisplayFor(obj => obj.Status)</td>
 
 
-                    <td><a class="btn btn-primary" asp-controller="Manager" asp-action="TimeSheetRelease" asp-route-TimeSheetID="@timeSheet.TimeSheetID">ReleaseTimeSheet</a></td>
+
+                    <td>@Html.ActionLink("Edit", "TimeSheetRelease", "Manager", new { TimeSheetID = Model.TimeSheetID })</td>
                     
+
                 </tr>
-                }
+                
             </tbody>
         </table>
     </div>
