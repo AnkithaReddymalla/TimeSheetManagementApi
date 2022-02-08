@@ -1,4 +1,5 @@
-﻿@*
+﻿@model TimeSheetManagement.Entity.Models.Employee
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
@@ -22,7 +23,7 @@
 <div id="heading" class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
     <!-- Copyright -->
     <div class="text-white mb-3 mb-md-0">
-        <h4>Admin</h4>
+        <h4>Manager</h4>
     </div>
 
 </div>
@@ -32,37 +33,36 @@
     <div class="container-fluid h-custom">
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-md-9 col-lg-6 col-xl-5">
-                <img src="~/css/Admin.png" class="img-fluid"
+                <img src="~/css/manager.png" class="img-fluid"
                      alt="Sample image">
             </div>
             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-                <form>
-
-                    <!-- Email input -->
+                <form method="post">
                     <div class="form-outline mb-4">
-                        <input type="email" id="form3Example3" class="form-control form-control-lg"
-                               placeholder="Enter a valid user name" />
-                        <label class="form-label" for="form3Example3">Email address</label>
+                        <label for="form-lable">Email address</label>
+                        <input type="email" class="form-control form-control-lg" asp-for="EmpEmailID" placeholder="Enter a valid user name" />
                     </div>
-
-                    <!-- Password input -->
                     <div class="form-outline mb-3">
-                        <input type="password" id="form3Example4" class="form-control form-control-lg"
-                               placeholder="Enter password" />
-                        <label class="form-label" for="form3Example4">Password</label>
+                        <label for="form-lable">Password</label>
+                        <input type="password" class="form-control form-control-lg" asp-for="EmpPsw" placeholder="Enter password">
+                    </div>
+                    <div class="text-center text-lg--start mt-4 pt-2">
+                        <input type="submit" class="btn btn-primary" value="Login" />
                     </div>
 
-
-
-                    <div class="text-center text-lg-start mt-4 pt-2">
-                        <a asp-area="" asp-controller="Home" asp-action="AdminPostLogin" class="btn btn-primary btn-lg"
-                           style="padding-left: 2.5rem; padding-right: 2.5rem;">
-                            Login
-                        </a>
-                        <br />
-                        <br />
-                        <br />
-                    </div>
+                    <hr />
+                    @if (ViewBag.status == "Ok")
+                    {
+                        <div class="alert alert-success">
+                            @ViewBag.message
+                        </div>
+                    }
+                    else if (ViewBag.status == "Error")
+                    {
+                        <div class="alert alert-danger">
+                            @ViewBag.message
+                        </div>
+                    }
 
                 </form>
             </div>
@@ -92,3 +92,4 @@
         <!-- Right -->
     </div>
 </section>
+

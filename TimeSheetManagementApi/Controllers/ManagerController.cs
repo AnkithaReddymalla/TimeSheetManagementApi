@@ -69,5 +69,15 @@ namespace TimeSheetManagementApi.Controllers
             _managerServices.TimeSheetRelease(timeSheet);
              return Ok("TimeSheet Released successfully!!");
         }
+
+        [HttpPost("ManagerLogin")]
+        public IActionResult ManagerLogin([FromBody] Employee employee)
+        {
+            Employee user = _managerServices.ManagerLogin(employee);
+            if (user != null)
+                return Ok("Login success!!");
+            else
+                return NotFound();
+        }
     }
 }

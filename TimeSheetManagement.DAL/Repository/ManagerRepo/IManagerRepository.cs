@@ -15,5 +15,6 @@ namespace TimeSheetManagement.DAL.Repository.ManagerRepo
         void ChangeEmpPsw(Employee employee);
         Employee AllocateProject(int EmpID);
         void AllocateProject(Employee employee);
+        Employee ManagerLogin(Employee employee);
     }
 }

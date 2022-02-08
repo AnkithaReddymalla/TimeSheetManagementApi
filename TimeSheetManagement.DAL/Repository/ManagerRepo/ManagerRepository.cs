@@ -55,5 +55,15 @@ namespace TimeSheetManagement.DAL.Repository.ManagerRepo
             _timeSheetDbContext.Entry(timeSheet).State = EntityState.Modified;
             _timeSheetDbContext.SaveChanges();
         }
+        public Employee ManagerLogin(Employee employee)
+        {
+            Employee employeeResult = null;
+            var result = _timeSheetDbContext.employee.Where(obj => obj.EmpEmailID == employee.EmpEmailID && obj.EmpPsw == employee.EmpPsw).ToList();
+            if (result.Count > 0)
+            {
+                employeeResult = result[0];
+            }
+            return employeeResult;
+        }
     }
 }

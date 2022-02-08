@@ -1,10 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
+using TimeSheetManagement.Entity.Models;
 using TimeSheetManagement.UI.Models;
 
 namespace TimeSheetManagement.UI.Controllers
@@ -28,36 +33,5 @@ namespace TimeSheetManagement.UI.Controllers
             return View();
         }
        
-        public IActionResult AdminLogin()
-        {
-            return View();
-        }
-        public IActionResult ManagerLogin()
-        {
-            return View();
-        }
-        public IActionResult EmployeeLogin()
-        {
-            return View();
-        }
-        public IActionResult AdminPostLogin()
-        {
-            return View();
-        }
-        public IActionResult ManagerPostLogin()
-        {
-            return View();
-        }
-        public IActionResult EmployeePostLogin()
-        {
-            return View();
-        }
-
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
     }
 }

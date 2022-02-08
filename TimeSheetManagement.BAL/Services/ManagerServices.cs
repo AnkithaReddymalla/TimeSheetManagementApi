@@ -49,5 +49,9 @@ namespace TimeSheetManagement.BAL.Services
         {
             _managerRepository.TimeSheetRelease(timeSheet);
         }
+        public Employee ManagerLogin(Employee employee)
+        {
+            return _managerRepository.ManagerLogin(employee);
+        }
     }
 }
