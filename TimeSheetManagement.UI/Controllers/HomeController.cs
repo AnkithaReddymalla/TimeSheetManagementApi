@@ -27,6 +27,32 @@ namespace TimeSheetManagement.UI.Controllers
         {
             return View();
         }
+       
+        public IActionResult AdminLogin()
+        {
+            return View();
+        }
+        public IActionResult ManagerLogin()
+        {
+            return View();
+        }
+        public IActionResult EmployeeLogin()
+        {
+            return View();
+        }
+        public IActionResult AdminPostLogin()
+        {
+            return View();
+        }
+        public IActionResult ManagerPostLogin()
+        {
+            return View();
+        }
+        public IActionResult EmployeePostLogin()
+        {
+            return View();
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

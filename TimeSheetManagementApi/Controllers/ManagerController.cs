@@ -18,12 +18,24 @@ namespace TimeSheetManagementApi.Controllers
         {
             _managerServices = managerServices;
         }
+        [HttpGet("AllocateProject")]
+        public Employee AllocateProject(int EmpID)
+        {
+            return _managerServices.AllocateProject(EmpID);
+
+        }
 
         [HttpPut("AllocateProject")]
         public IActionResult AllocateProject([FromBody] Employee employee)
         {
             _managerServices.AllocateProject(employee);
             return Ok("Project Allocated successfully!!");
+        }
+        [HttpGet("ChangeEmpPsw")]
+        public Employee ChangeEmpPsw(int EmpID)
+        {
+            return _managerServices.ChangeEmpPsw(EmpID);
+
         }
 
         [HttpPut("ChangeEmpPsw")]
@@ -43,6 +55,12 @@ namespace TimeSheetManagementApi.Controllers
         public TimeSheet GetTimeSheetByID(int EmpID)
         {
             return _managerServices.GetTimeSheetByID(EmpID);
+        }
+        [HttpGet("TimeSheetRelease")]
+        public TimeSheet TimeSheetRelease(int TimeSheetID)
+        {
+            return _managerServices.TimeSheetRelease(TimeSheetID);
+
         }
 
         [HttpPut("TimeSheetRelease")]

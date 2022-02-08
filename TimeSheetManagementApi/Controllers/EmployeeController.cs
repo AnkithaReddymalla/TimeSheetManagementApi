@@ -32,6 +32,12 @@ namespace TimeSheetManagementApi.Controllers
             _employeeServices.DeleteTimeSheet(TimeSheetID);
             return Ok("TimeSheet Deleted successfully!!");
         }
+        [HttpGet("UpdateTimeSheet")]
+        public TimeSheet UpdateTimeSheet(int TimeSheetID)
+        {
+            return _employeeServices.UpdateTimeSheet(TimeSheetID);
+
+        }
 
         [HttpPut("UpdateTimeSheet")]
         public IActionResult UpdateTimeSheet([FromBody] TimeSheet timeSheet)

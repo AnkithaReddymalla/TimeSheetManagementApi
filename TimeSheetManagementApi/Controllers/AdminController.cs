@@ -93,6 +93,12 @@ namespace TimeSheetManagementApi.Controllers
             _adminServices.DeleteProject(ProjectID);
             return Ok("Project deleted successfully!!");
         }
+        [HttpGet("UpdateProject")]
+        public Project UpdateProject(int ProjectID)
+        {
+            return _adminServices.UpdateProject(ProjectID);
+
+        }
         [HttpPut("UpdateProject")]
         public IActionResult UpdateProject([FromBody] Project project)
         {

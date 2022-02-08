@@ -60,6 +60,10 @@ namespace TimeSheetManagement.BAL.Services
         {
             _adminRepository.AddProject(project);
         }
+        public Project UpdateProject(int ProjectID)
+        {
+            return _adminRepository.UpdateProject(ProjectID);
+        }
         public void UpdateProject(Project project)
         {
             _adminRepository.UpdateProject(project);

@@ -15,14 +15,22 @@ namespace TimeSheetManagement.DAL.Repository.ManagerRepo
         {
             _timeSheetDbContext = timeSheetDbContext;
         }
+        public Employee AllocateProject(int EmpID)
+        {
+            return _timeSheetDbContext.employee.Find(EmpID);
+        }
 
         public void AllocateProject(Employee employee)
         {
             _timeSheetDbContext.Entry(employee).State = EntityState.Modified;
             _timeSheetDbContext.SaveChanges();
         }
+        public Employee ChangeEmpPsw(int EmpID)
+        {
+            return _timeSheetDbContext.employee.Find(EmpID);
+        }
 
-        public void ChangeEmpPsw(Employee employee)
+       public void ChangeEmpPsw(Employee employee)
         {
             _timeSheetDbContext.Entry(employee).State = EntityState.Modified;
             _timeSheetDbContext.SaveChanges();
@@ -36,6 +44,10 @@ namespace TimeSheetManagement.DAL.Repository.ManagerRepo
         public TimeSheet GetTimeSheetByID(int EmpID)
         {
             return _timeSheetDbContext.timeSheet.Where(obj => obj.EmpID == EmpID).SingleOrDefault();
+        }
+        public TimeSheet TimeSheetRelease(int TimeSheetID)
+        {
+            return _timeSheetDbContext.timeSheet.Find(TimeSheetID);
         }
 
         public void TimeSheetRelease(TimeSheet timeSheet)

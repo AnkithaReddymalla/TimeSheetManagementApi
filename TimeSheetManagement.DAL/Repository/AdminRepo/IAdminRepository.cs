@@ -7,8 +7,8 @@ namespace TimeSheetManagement.DAL.Repository.AdminRepo
 {
     public  interface IAdminRepository
     {
-        
-       #region Employee
+
+        #region Employee
 
         void AddEmployee(Employee employee);
         Employee UpdateEmployee(int EmpID);
@@ -23,6 +23,7 @@ namespace TimeSheetManagement.DAL.Repository.AdminRepo
         #region Project
 
         void AddProject(Project project);
+        Project UpdateProject(int ProjectID);
         void UpdateProject(Project project);
         void DeleteProject(int ProjectID);
         Project GetProjectByID(int ProjectID);
@@ -30,7 +31,7 @@ namespace TimeSheetManagement.DAL.Repository.AdminRepo
 
         #endregion
 
-        
+
 
 
     }

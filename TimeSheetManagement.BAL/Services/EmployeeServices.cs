@@ -22,6 +22,10 @@ namespace TimeSheetManagement.BAL.Services
         {
             _employeeRepository.DeleteTimeSheet(TimeSheetID);
         }
+        public TimeSheet UpdateTimeSheet(int TimeSheetID)
+        {
+            return _employeeRepository.UpdateTimeSheet(TimeSheetID);
+        }
         public void UpdateTimeSheet(TimeSheet timeSheet)
         {
             _employeeRepository.UpdateTimeSheet(timeSheet);

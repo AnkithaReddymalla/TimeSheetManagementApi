@@ -19,6 +19,9 @@ namespace TimeSheetManagement.UI.Controllers
         {
             _configuration = configuration;
         }
+
+        #region Employee
+
         public IActionResult AddEmployee()
         {
             return View();
@@ -154,10 +157,151 @@ namespace TimeSheetManagement.UI.Controllers
 
         }
 
-        public IActionResult DeleteEmployee(int EmpID)
+        public async Task<IActionResult> DeleteEmployee(int EmpID)
+        {
+            ViewBag.status = "";
+            using (HttpClient client = new HttpClient())
+            {
+               
+                string endPoint = _configuration["WebApiBaseUrl"] + "Admin/DeleteEmployee?EmpID="+EmpID;
+                using (var response = await client.DeleteAsync(endPoint))
+                {
+                    if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                    {
+                        ViewBag.status = "Ok";
+                        ViewBag.message = "Employee details Deleted successfully!";
+                    }
+                    else
+                    {
+                        ViewBag.status = "Error";
+                        ViewBag.message = "Wrong entries!";
+                    }
+                }
+            }
+            return View();
+
+        }
+        #endregion
+
+        #region Project
+
+        public IActionResult AddProject()
         {
             return View();
         }
+        [HttpPost]
+        public async Task<IActionResult> AddProject(Project project)
+        {
+            ViewBag.status = "";
+            using (HttpClient client = new HttpClient())
+            {
+                StringContent content = new StringContent(JsonConvert.SerializeObject(project), Encoding.UTF8, "application/json");
+                string endPoint = _configuration["WebApiBaseUrl"] + "Admin/AddProject";
+                using (var response = await client.PostAsync(endPoint, content))
+                {
+                    if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                    {
+                        ViewBag.status = "Ok";
+                        ViewBag.message = "Project details saved successfully!";
+                    }
+                    else
+                    {
+                        ViewBag.status = "Error";
+                        ViewBag.message = "Wrong entries!";
+                    }
+                }
+            }
+            return View();
+        }
+
+        public async Task<IActionResult> GetProjects()
+        {
+            IEnumerable<Project> projectResult = null;
+            using (HttpClient client = new HttpClient())
+            {
+                string endPoint = _configuration["WebApiBaseUrl"] + "Admin/GetProjects";
+                using (var response = await client.GetAsync(endPoint))
+                {
+                    if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                    {
+                        var result = await response.Content.ReadAsStringAsync();
+                        projectResult = JsonConvert.DeserializeObject<IEnumerable<Project>>(result);
+                    }
+                }
+            }
+            return View(projectResult);
+        }
+
+        public async Task<IActionResult> UpdateProject(int ProjectID)
+        {
+            Project projectResult = null;
+            using (HttpClient client = new HttpClient())
+            {
+                string endPoint = _configuration["WebApiBaseUrl"] + "Admin/UpdateProject?ProjectID=" + ProjectID;
+                using (var response = await client.GetAsync(endPoint))
+                {
+                    if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                    {
+                        var result = await response.Content.ReadAsStringAsync();
+                        projectResult = JsonConvert.DeserializeObject<Project>(result);
+                    }
+                }
+            }
+            return View(projectResult);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateProject(Project project)
+        {
+            ViewBag.status = "";
+            using (HttpClient client = new HttpClient())
+            {
+                StringContent content = new StringContent(JsonConvert.SerializeObject(project), Encoding.UTF8, "application/json");
+                string endPoint = _configuration["WebApiBaseUrl"] + "Admin/UpdateProject";
+                using (var response = await client.PutAsync(endPoint, content))
+                {
+                    if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                    {
+                        ViewBag.status = "Ok";
+                        ViewBag.message = "Project details Updated successfully!";
+                    }
+                    else
+                    {
+                        ViewBag.status = "Error";
+                        ViewBag.message = "Wrong entries!";
+                    }
+                }
+            }
+            return View();
+
+        }
+
+        public async Task<IActionResult> DeleteProject(int ProjectID)
+        {
+            ViewBag.status = "";
+            using (HttpClient client = new HttpClient())
+            {
+
+                string endPoint = _configuration["WebApiBaseUrl"] + "Admin/DeleteProject?ProjectID=" + ProjectID;
+                using (var response = await client.DeleteAsync(endPoint))
+                {
+                    if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                    {
+                        ViewBag.status = "Ok";
+                        ViewBag.message = "Project details Deleted successfully!";
+                    }
+                    else
+                    {
+                        ViewBag.status = "Error";
+                        ViewBag.message = "Wrong entries!";
+                    }
+                }
+            }
+            return View();
+
+        }
+
+      #endregion
 
     }
 }

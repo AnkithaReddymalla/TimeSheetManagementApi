@@ -1,0 +1,31 @@
+﻿@model IEnumerable<TimeSheetManagement.Entity.Models.Project>
+
+<div class="row">
+    <div class="col-12">
+        <h3>Projects</h3>
+        <hr />
+        <table class="table table-light table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>ProjectID</th>
+                    <th>ProjectName</th>
+                    <th>ProjectDesc</th>
+                    <th>UpdateProject</th>
+                   <th>DeleteProject</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var project in Model)
+                {
+                <tr>
+                    <td>@project.ProjectID</td>
+                    <td>@project.ProjectName</td>
+                    <td>@project.ProjectDesc</td>
+                    <td><a class="btn btn-primary" asp-controller="Admin" asp-action="UpdateProject" asp-route-ProjectID="@project.ProjectID">Update</a></td>
+                    <td><a class="btn btn-danger" asp-controller="Admin" asp-action="DeleteProject" asp-route-ProjectID="@project.ProjectID">Delete</a></td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

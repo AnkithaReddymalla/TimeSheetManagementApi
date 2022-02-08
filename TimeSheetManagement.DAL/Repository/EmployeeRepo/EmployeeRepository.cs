@@ -27,8 +27,12 @@ namespace TimeSheetManagement.DAL.Repository.EmployeeRepo
             _timeSheetDbContext.timeSheet.Remove(timeSheet);
             _timeSheetDbContext.SaveChanges();
         }
+        public TimeSheet UpdateTimeSheet(int TimeSheetID)
+        {
+            return _timeSheetDbContext.timeSheet.Find(TimeSheetID);
+        }
 
-        public void UpdateTimeSheet(TimeSheet timeSheet)
+       public void UpdateTimeSheet(TimeSheet timeSheet)
         {
             _timeSheetDbContext.Entry(timeSheet).State = EntityState.Modified;
             _timeSheetDbContext.SaveChanges();

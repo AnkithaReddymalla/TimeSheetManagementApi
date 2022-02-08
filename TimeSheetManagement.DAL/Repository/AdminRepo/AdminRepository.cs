@@ -20,28 +20,28 @@ namespace TimeSheetManagement.DAL.Repository.AdminRepo
         #region Employee
 
         public void AddEmployee(Employee employee)
-         {
-             _timeSheetDbContext.employee.Add(employee);
-             _timeSheetDbContext.SaveChanges();
-         }
+        {
+            _timeSheetDbContext.employee.Add(employee);
+            _timeSheetDbContext.SaveChanges();
+        }
 
-         public void DeleteEmployee(int EmpID)
-         {
-             var employee = _timeSheetDbContext.employee.Find(EmpID);
-             _timeSheetDbContext.employee.Remove(employee);
-             _timeSheetDbContext.SaveChanges();
+        public void DeleteEmployee(int EmpID)
+        {
+            var employee = _timeSheetDbContext.employee.Find(EmpID);
+            _timeSheetDbContext.employee.Remove(employee);
+            _timeSheetDbContext.SaveChanges();
 
-         }
+        }
 
-         public Employee GetEmployeeByID(int EmpID)
-         {
-             return _timeSheetDbContext.employee.Find(EmpID);
-         }
+        public Employee GetEmployeeByID(int EmpID)
+        {
+            return _timeSheetDbContext.employee.Find(EmpID);
+        }
 
-         public IEnumerable<Employee> GetEmployees()
-         {
-             return _timeSheetDbContext.employee.ToList();
-         }
+        public IEnumerable<Employee> GetEmployees()
+        {
+            return _timeSheetDbContext.employee.ToList();
+        }
 
         public Employee UpdateEmployee(int EmpID)
         {
@@ -49,10 +49,10 @@ namespace TimeSheetManagement.DAL.Repository.AdminRepo
         }
 
         public void UpdateEmployee(Employee employee)
-         {
-             _timeSheetDbContext.Entry(employee).State = EntityState.Modified;
-             _timeSheetDbContext.SaveChanges();
-         }
+        {
+            _timeSheetDbContext.Entry(employee).State = EntityState.Modified;
+            _timeSheetDbContext.SaveChanges();
+        }
 
         public Employee AssignManager(int EmpID)
         {
@@ -60,10 +60,10 @@ namespace TimeSheetManagement.DAL.Repository.AdminRepo
         }
 
         public void AssignManager(Employee employee)
-         {
+        {
             _timeSheetDbContext.Entry(employee).State = EntityState.Modified;
             _timeSheetDbContext.SaveChanges();
-         }
+        }
 
         #endregion
 
@@ -92,6 +92,11 @@ namespace TimeSheetManagement.DAL.Repository.AdminRepo
         public IEnumerable<Project> GetProjects()
         {
             return _timeSheetDbContext.project.ToList();
+        }
+
+        public Project UpdateProject(int ProjectID)
+        {
+            return _timeSheetDbContext.project.Find(ProjectID);
         }
 
         public void UpdateProject(Project project)

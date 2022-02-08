@@ -1,0 +1,43 @@
+﻿@model IEnumerable<TimeSheetManagement.Entity.Models.TimeSheet>
+
+<div class="row">
+    <div class="col-12">
+        <h3>Employee TimeSheet</h3>
+        <hr />
+        <table class="table table-light table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>TimeSheetID</th>
+                    <th>ProjectID</th>
+                    <th>EmpID</th>
+                    <th>Date</th>
+                    <th>TimeFrom</th>
+                    <th>TimeTo</th>
+                    <th>Hours</th>
+                    <th>Status</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var timeSheet in Model)
+                {
+                <tr>
+                  
+                    <td>@timeSheet.TimeSheetID</td>
+                    <td>@timeSheet.ProjectID</td>
+                    <td>@timeSheet.EmpID</td>
+                    <td>@timeSheet.Date</td>
+                    <td>@timeSheet.TimeFrom</td>
+                    <td>@timeSheet.TimeTo</td>
+                    <td>@timeSheet.Hours</td>
+                    <td>@timeSheet.Status</td>
+
+
+                    <td><a class="btn btn-primary" asp-controller="Manager" asp-action="TimeSheetRelease" asp-route-TimeSheetID="@timeSheet.TimeSheetID">ReleaseTimeSheet</a></td>
+                    
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
