@@ -50,9 +50,51 @@ namespace TimeSheetManagement.UI.Controllers
         {
             return View();
         }
-       
+        [HttpPost]
+        public async Task<IActionResult> ManagerLogin(Employee employee)
+        {
+            ViewBag.status = "";
+            using (HttpClient client = new HttpClient())
+            {
+                StringContent content = new StringContent(JsonConvert.SerializeObject(employee), Encoding.UTF8, "application/json");
+                string endPoint = _configuration["WebApiBaseUrl"] + "ManagerToken/ManagerLogin";
+                using (var response = await client.PostAsync(endPoint, content))
+                {
+                    if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                        return RedirectToAction("ManagerPostLogin", "Login");
+                    else
+                    {
+                        ViewBag.status = "Error";
+                        ViewBag.message = "Wrong credentials!";
+                    }
+                }
+            }
+            return View();
+        }
+
         public IActionResult EmployeeLogin()
         {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> EmployeeLogin(Employee employee)
+        {
+            ViewBag.status = "";
+            using (HttpClient client = new HttpClient())
+            {
+                StringContent content = new StringContent(JsonConvert.SerializeObject(employee), Encoding.UTF8, "application/json");
+                string endPoint = _configuration["WebApiBaseUrl"] + "EmployeeToken/EmployeeLogin";
+                using (var response = await client.PostAsync(endPoint, content))
+                {
+                    if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                        return RedirectToAction("EmployeePostLogin", "Login");
+                    else
+                    {
+                        ViewBag.status = "Error";
+                        ViewBag.message = "Wrong credentials!";
+                    }
+                }
+            }
             return View();
         }
         public IActionResult AdminPostLogin()
